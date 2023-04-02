@@ -46,3 +46,19 @@ end
 --3. Pomijanie pierwszego killa (liczy do 5 dla kadzego inny komunikat na 6 Nagroda)
 --4. Dodanie dzwiekow
 --5. Nagroda za serie zabojstw
+
+
+
+
+EventHandler = EVENTHANDLER:New()
+EventHandler:HandleEvent( EVENTS.Dead )
+function EventHandler:OnEventDead( EventData )
+  BASE:I(EventData)
+end
+end
+
+
+
+
+
+
