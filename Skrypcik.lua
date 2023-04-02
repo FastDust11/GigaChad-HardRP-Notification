@@ -54,3 +54,5 @@ EventHandler:HandleEvent(EVENTS.Dead)
 function EventHandler:OnEventDead(EventData)
     BASE:I(EventData)
 end
+
+--test komentarzy
