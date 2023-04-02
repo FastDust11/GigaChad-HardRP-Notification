@@ -29,7 +29,7 @@ function podrabiana_deduwa:OnEventPlayerEnterAircraft(EventData)
 end
 
 --Do zrobienia:
---1. Warunek dla eventhandlera czy koles nie zginal (reset pentli)
+--1. Warunek dla eventhandlera czy koles nie zginal (jak zginie zaczyna liczyc od nowa)
 --2. Ma zliczac tylko samoloty
 --3. Pomijanie pierwszego killa (liczy do 5 dla kadzego inny komunikat na 6 Nagroda)
 --4. Dodanie dzwiekow
