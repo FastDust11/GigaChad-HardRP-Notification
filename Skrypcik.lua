@@ -19,6 +19,17 @@ function deduwa:OnEventKill(EventData)
     MESSAGE:New(" gracz wynik = " .. wyniki[gracz] .. " ", 20):ToAll()
 end
 
+function deduwa:OnEventKill(EventData)
+    gracz = EventData.TgtPlayerName
+    MESSAGE:New(" gracz zabity = " .. gracz .. " ", 20):ToAll()
+	
+    if wyniki[gracz] ~= nil then
+        wyniki[gracz] = 0
+    end
+    MESSAGE:New(" gracz wynik = " .. wyniki[gracz] .. " ", 20):ToAll()
+end
+
+--[[
 podrabiana_deduwa = EVENTHANDLER:New()
 podrabiana_deduwa:HandleEvent(EVENTS.PlayerEnterAircraft)
 
@@ -26,7 +37,7 @@ function podrabiana_deduwa:OnEventPlayerEnterAircraft(EventData)
     gracz = EventData.IniPlayerName
     MESSAGE:New(" gracz śmierć = " .. EventData.IniPlayerName .. " ", 20):ToAll()
     Wyniki[gracz] = nil
-end
+end]]
 
 --Do zrobienia:
 --1. Warunek dla eventhandlera czy koles nie zginal (reset pentli)
