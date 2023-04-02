@@ -27,7 +27,6 @@ function deduwa:OnEventKill(EventData)
     if wyniki[gracz] ~= nil then
         wyniki[gracz] = nil
     end
-    MESSAGE:New(" gracz wynik = " .. wyniki[gracz] .. " ", 20):ToAll()
 end
 
 -- Reset licznika jak zmieni slota
@@ -51,14 +50,7 @@ end
 
 
 EventHandler = EVENTHANDLER:New()
-EventHandler:HandleEvent( EVENTS.Dead )
-function EventHandler:OnEventDead( EventData )
-  BASE:I(EventData)
+EventHandler:HandleEvent(EVENTS.Dead)
+function EventHandler:OnEventDead(EventData)
+    BASE:I(EventData)
 end
-end
-
-
-
-
-
-
