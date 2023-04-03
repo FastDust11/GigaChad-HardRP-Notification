@@ -15,6 +15,15 @@ wyniki = {}
 deduwa = EVENTHANDLER:New()
 deduwa:HandleEvent(EVENTS.Kill)
 
+--Struktura danych
+myTable = {
+    [2] = "2 kill",
+    [3] = "3 kill",
+    [4] = "4 kill",
+    [5] = "5 kill",
+    [6] = "6 kill"
+}
+
 --liczy kille, dziala nie dotykac
 function deduwa:OnEventKill(EventData)
     gracz = EventData.IniPlayerName
@@ -26,30 +35,24 @@ function deduwa:OnEventKill(EventData)
         wyniki[gracz] = wyniki[gracz] + 1
     end
     --"20" czas wyświetlania wiadomości
-    MESSAGE:New(" gracz wynik = " .. wyniki[gracz] .. " ", 20):ToAll()
+
+    if myTable[wyniki[gracz]] then
+        env.info("poszlo")
+        MESSAGE:New(myTable[wyniki[gracz]], 20):ToAll()
+    end
 end
-
---Struktura danych
-myTable = {
-    [2] = "2 kill",
-    [3] = "3 kill",
-    [4] = "4 kill",
-    [5] = "5 kill",
-    [6] = "6 kill"
-}
-
 
 -- Reset licznika jeśli (trzeba zamienić na eventDeath)
 function deduwa:OnEventKill(EventData)
     gracz = EventData.TgtPlayerName
-    MESSAGE:New(" gracz zabity = " .. gracz .. " ", 20):ToAll()
+    --    MESSAGE:New(" gracz zabity = " .. gracz .. " ", 20):ToAll()
 
     if wyniki[gracz] ~= nil then
         wyniki[gracz] = nil
     end
 end
 
--- Reset licznika jak zmieni slota
+-- Reset licznika jak zmieni slota, cos w nim nie dziala
 podrabiana_deduwa = EVENTHANDLER:New()
 podrabiana_deduwa:HandleEvent(EVENTS.PlayerEnterAircraft)
 
