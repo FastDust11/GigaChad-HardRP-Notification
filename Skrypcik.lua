@@ -15,6 +15,7 @@ wyniki = {}
 deduwa = EVENTHANDLER:New()
 deduwa:HandleEvent(EVENTS.Kill)
 
+--liczy kille, dziala nie dotykac
 function deduwa:OnEventKill(EventData)
     gracz = EventData.IniPlayerName
     MESSAGE:New(" gracz = " .. EventData.IniPlayerName .. " ", 20):ToAll()
