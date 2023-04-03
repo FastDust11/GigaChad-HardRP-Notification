@@ -29,6 +29,16 @@ function deduwa:OnEventKill(EventData)
     MESSAGE:New(" gracz wynik = " .. wyniki[gracz] .. " ", 20):ToAll()
 end
 
+--Struktura danych
+myTable = {
+    [2] = "2 kill",
+    [3] = "3 kill",
+    [4] = "4 kill",
+    [5] = "5 kill",
+    [6] = "6 kill"
+}
+
+
 -- Reset licznika jeśli (trzeba zamienić na eventDeath)
 function deduwa:OnEventKill(EventData)
     gracz = EventData.TgtPlayerName
