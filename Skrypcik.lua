@@ -18,13 +18,12 @@ function deduwa:OnEventKill(EventData)
     gracz = EventData.IniPlayerName
     MESSAGE:New(" gracz = " .. EventData.IniPlayerName .. " ", 20):ToAll()
 
-
-    --"20" czas wyświetlania wiadomości
     if wyniki[gracz] == nil then
         wyniki[gracz] = 1
     else
         wyniki[gracz] = wyniki[gracz] + 1
     end
+    --"20" czas wyświetlania wiadomości
     MESSAGE:New(" gracz wynik = " .. wyniki[gracz] .. " ", 20):ToAll()
 end
 
