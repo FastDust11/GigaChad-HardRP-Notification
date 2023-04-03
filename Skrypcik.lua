@@ -7,10 +7,11 @@
 --7. Dodanie customowych kominikatow po zabojstwie, zesmiesznym dopiskiem                               -->
 --   jesli sie da to losowym np. "SanchoPancho - DoubleKILL //Wali ich jak Lucas phoenixami Hancera//"
 
+
 wyniki = {}
+
 -- Reakcja na zniszczenie samolotu przeciwnika
 --EVENTHANDLER={}
-
 deduwa = EVENTHANDLER:New()
 deduwa:HandleEvent(EVENTS.Kill)
 
