@@ -1,3 +1,12 @@
+--Do zrobienia:
+--1. Warunek dla eventhandlera czy koles nie zginal (jak zginie zaczyna liczyc od nowa)                 --> W trakcie
+--2. Ma zliczac samoloty, najlepiej przeciwnika i helki ludzkie, nieludzkim mowimy stanowcze nie        -->
+--3. Pomijanie pierwszego killa (liczy do 5 dla kadzego inny komunikat na 6 Nagroda)                    -->
+--5. Dodanie dzwiekow                                                                                   -->
+--6. Nagroda za serie zabojstw                                                                          -->
+--7. Dodanie customowych kominikatow po zabojstwie, zesmiesznym dopiskiem                               -->
+--   jesli sie da to losowym np. "SanchoPancho - DoubleKILL //Wali ich jak Lucas phoenixami Hancera//"
+
 wyniki = {}
 -- Reakcja na zniszczenie samolotu przeciwnika
 --EVENTHANDLER={}
@@ -39,20 +48,8 @@ function podrabiana_deduwa:OnEventPlayerEnterAircraft(EventData)
     Wyniki[gracz] = nil
 end
 
---Do zrobienia:
---1. Warunek dla eventhandlera czy koles nie zginal (jak zginie zaczyna liczyc od nowa)
---2. Ma zliczac tylko samoloty
---3. Pomijanie pierwszego killa (liczy do 5 dla kadzego inny komunikat na 6 Nagroda)
---4. Dodanie dzwiekow
---5. Nagroda za serie zabojstw
-
-
-
-
 EventHandler = EVENTHANDLER:New()
 EventHandler:HandleEvent(EVENTS.Dead)
 function EventHandler:OnEventDead(EventData)
     BASE:I(EventData)
 end
-
---test komentarzy
