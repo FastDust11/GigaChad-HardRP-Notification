@@ -1,6 +1,6 @@
 --Do zrobienia:
---1. Warunek dla eventhandlera czy koles nie zginal (jak zginie zaczyna liczyc od nowa)                 --> Nie dziala
---2. Ma zliczac samoloty, najlepiej przeciwnika i helki ludzkie, nieludzkim mowimy stanowcze nie        --> Do zrobienia
+--1. Warunek dla eventhandlera czy koles nie zginal (jak zginie zaczyna liczyc od nowa)                 --> Zrobione
+--2. Ma zliczac samoloty, najlepiej przeciwnika i (helki ludzkie, nieludzkim mowimy stanowcze nie)      --> Do zrobienia
 --3. Pomijanie pierwszego killa (liczy do 5 dla kadzego inny komunikat na 6 Nagroda)                    --> Zrobione
 --5. Dodanie dzwiekow                                                                                   --> Do zrobienia
 --6. Nagroda za serie zabojstw                                                                          --> Do zrobienia
@@ -26,14 +26,19 @@ myTable = {
     [8] = "LEGENDARY!",
 }
 
---liczy kille, dziala nie dotykac
+--liczy kille
 function deduwa:OnEventKill(EventData)
     gracz = EventData.IniPlayerName
-    if wyniki[gracz] == nil then
-        wyniki[gracz] = 1
-    else
-        wyniki[gracz] = wyniki[gracz] + 1
+    if EventData.TgtDCSUnit then
+        env.info("działa" .. EventData.TgtDCSUnit.UnitName) --wywala nil dla unitName
     end
+    if EventData.TgtDCSUnit and EventData.TgtDCSUnit.UnitName then
+        env.info("działa" .. EventData.TgtDCSGroupName)
+        if EventData.TgtDCSUnit:GetCategoryName() == "Airplane" or EventData.TgtDCSUnit:GetCategoryName() == "Helicopter" then
+            wyniki[gracz] = wyniki[gracz] + 1
+        end
+    end
+
 
     if myTable[wyniki[gracz]] then
         MESSAGE:New(EventData.IniPlayerName .. " " .. "-" .. " " .. myTable[wyniki[gracz]], 20):ToAll()
