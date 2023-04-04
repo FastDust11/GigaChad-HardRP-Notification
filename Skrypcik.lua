@@ -43,7 +43,7 @@ function deduwa:OnEventKill(EventData)
 end
 
 -- Reset licznika jeśli (trzeba zamienić na eventDeath)
-function deduwa:OnEventKill(EventData)
+function reset_deduwa:OnEventKill(EventData)
     gracz = EventData.TgtPlayerName
     --    MESSAGE:New(" gracz zabity = " .. gracz .. " ", 20):ToAll()
 
