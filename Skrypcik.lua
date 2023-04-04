@@ -27,7 +27,7 @@ myTable = {
 --liczy kille, dziala nie dotykac
 function deduwa:OnEventKill(EventData)
     gracz = EventData.IniPlayerName
-    MESSAGE:New(" gracz = " .. EventData.IniPlayerName .. " ", 20):ToAll()
+    --MESSAGE:New(" gracz = " .. EventData.IniPlayerName .. " ", 20):ToAll()                     <--Jak usune to nie ma nicka przy killach jak nie usune to daje nick przy pierwszym killu
 
     if wyniki[gracz] == nil then
         wyniki[gracz] = 1
