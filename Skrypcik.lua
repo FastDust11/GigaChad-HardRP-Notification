@@ -58,7 +58,7 @@ podrabiana_deduwa:HandleEvent(EVENTS.PlayerEnterAircraft)
 function podrabiana_deduwa:OnEventPlayerEnterAircraft(EventData)
     gracz = EventData.IniPlayerName
     MESSAGE:New(" gracz śmierć = " .. EventData.IniPlayerName .. " ", 20):ToAll()
-    Wyniki[gracz] = nil
+    wyniki[gracz] = nil
 end
 
 EventHandler = EVENTHANDLER:New()
