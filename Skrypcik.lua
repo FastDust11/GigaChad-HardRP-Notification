@@ -73,6 +73,7 @@ function podrabiana_deduwa:OnEventPlayerEnterAircraft(EventData)
     wyniki[gracz] = nil
 end
 
+--wypluwa do logow wszystkie wlasnosci EventData
 --EventHandler = EVENTHANDLER:New()
 --EventHandler:HandleEvent(EVENTS.Dead)
 --function EventHandler:OnEventDead(EventData)
