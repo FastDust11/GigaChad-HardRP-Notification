@@ -1,12 +1,27 @@
 --Do zrobienia:
 --1. Warunek dla eventhandlera czy koles nie zginal (jak zginie zaczyna liczyc od nowa)                 --> Zrobione
---2. Ma zliczac samoloty, najlepiej przeciwnika i (helki ludzkie, nieludzkim mowimy stanowcze nie)      --> Do zrobienia
+--2. Ma zliczac samoloty, najlepiej przeciwnika i (helki ludzkie, nieludzkim mowimy stanowcze nie)      --> Zrobione
 --3. Pomijanie pierwszego killa (liczy do 5 dla kadzego inny komunikat na 6 Nagroda)                    --> Zrobione
 --5. Dodanie dzwiekow                                                                                   --> Do zrobienia
 --6. Nagroda za serie zabojstw                                                                          --> Do zrobienia
 --7. Dodanie customowych kominikatow po zabojstwie, zesmiesznym dopiskiem                               --> Do zrobienia
 --   jesli sie da to losowym np. "SanchoPancho - DoubleKILL //Wali ich jak Lucas phoenixami Hancera//"
 
+--zamienia tabele na tekst
+function DumpTable(o)
+    if type(o) == 'table' then
+        local s = '{ '
+        for k, v in pairs(o) do
+            if type(k) ~= 'number' then
+                k = '' .. k .. ''
+            end
+            s = s .. '[' .. k .. '] = ' .. DumpTable(v) .. ','
+        end
+        return s .. '} '
+    else
+        return tostring(o)
+    end
+end
 
 wyniki = {}
 
@@ -26,23 +41,20 @@ myTable = {
     [8] = "LEGENDARY!",
 }
 
---liczy kille
+--liczy kille tylko dla samolotow i helek
 function deduwa:OnEventKill(EventData)
     gracz = EventData.IniPlayerName
-    if EventData.TgtDCSUnit then
-        env.info("działa" .. EventData.TgtDCSUnit.UnitName) --wywala nil dla unitName
-    end
-    if EventData.TgtDCSUnit and EventData.TgtDCSUnit.UnitName then
-        env.info("działa" .. EventData.TgtDCSGroupName)
-        if EventData.TgtDCSUnit:GetCategoryName() == "Airplane" or EventData.TgtDCSUnit:GetCategoryName() == "Helicopter" then
-            wyniki[gracz] = wyniki[gracz] + 1
+
+    if EventData.TgtCategory == Unit.Category.AIRPLANE or EventData.TgtCategory == Unit.Category.HELICOPTER then
+        if not wyniki[gracz] then
+            wyniki[gracz] = 0
         end
+        wyniki[gracz] = wyniki[gracz] + 1
     end
 
 
     if myTable[wyniki[gracz]] then
         MESSAGE:New(EventData.IniPlayerName .. " " .. "-" .. " " .. myTable[wyniki[gracz]], 20):ToAll()
-        env.info("poszlo")
     end
 
     gracz_zabity = EventData.TgtPlayerName
