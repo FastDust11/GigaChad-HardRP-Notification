@@ -2,9 +2,9 @@
 --1. Warunek dla eventhandlera czy koles nie zginal (jak zginie zaczyna liczyc od nowa)                 --> Zrobione
 --2. Ma zliczac samoloty, najlepiej przeciwnika i (helki ludzkie, nieludzkim mowimy stanowcze nie)      --> Zrobione
 --3. Pomijanie pierwszego killa (liczy do 5 dla kadzego inny komunikat na 6 Nagroda)                    --> Zrobione
---5. Dodanie dzwiekow                                                                                   --> Do zrobienia
---6. Nagroda za serie zabojstw                                                                          --> Do zrobienia
---7. Dodanie customowych kominikatow po zabojstwie, zesmiesznym dopiskiem                               --> Do zrobienia
+--4. Dodanie dzwiekow                                                                                   --> Do zrobienia
+--5. Nagroda za serie zabojstw                                                                          --> Do zrobienia
+--6. Dodanie customowych kominikatow po zabojstwie, zesmiesznym dopiskiem                               --> Do zrobienia
 --   jesli sie da to losowym np. "SanchoPancho - DoubleKILL //Wali ich jak Lucas phoenixami Hancera//"
 
 --zamienia tabele na tekst
